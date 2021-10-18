@@ -955,7 +955,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var modals = function modals() {
   function bindModal(triggerSelector, modalSelector, closeSelector) {
-    var closeClickOverlay = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+    var destroy = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
     var trigger = document.querySelectorAll(triggerSelector);
     var modal = document.querySelector(modalSelector);
     var close = document.querySelector(closeSelector);
@@ -965,6 +965,10 @@ var modals = function modals() {
       item.addEventListener('click', function (e) {
         if (e.target) {
           e.preventDefault();
+        }
+
+        if (destroy) {
+          item.remove();
         } //close all opened popups
 
 
@@ -987,7 +991,7 @@ var modals = function modals() {
     }); //close modal on click on screen
 
     modal.addEventListener('click', function (e) {
-      if (e.target === modal && closeClickOverlay) {
+      if (e.target === modal) {
         //close all opened popups
         windows.forEach(function (item) {
           item.style.display = 'none';
@@ -1019,6 +1023,8 @@ var modals = function modals() {
       if (!display) {
         document.querySelector(selector).style.display = 'block';
         document.body.style.overflow = "hidden";
+        var scroll = calcScroll();
+        document.body.style.marginRight = "".concat(scroll, "px");
       }
     }, time);
   } //to fix bug with jumping window after modal shown
@@ -1039,6 +1045,7 @@ var modals = function modals() {
 
   bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
   bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
   showModalByTime('.popup-consultation', 5000);
 };
 

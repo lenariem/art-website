@@ -1,4 +1,6 @@
 const modals = () => {
+    let btnPressed = false;
+
     function bindModal(triggerSelector, modalSelector, closeSelector, destroy = false) {
         const trigger = document.querySelectorAll(triggerSelector);
         const modal = document.querySelector(modalSelector);
@@ -11,6 +13,8 @@ const modals = () => {
                 if(e.target) {
                     e.preventDefault();
                 }
+
+                btnPressed = true;
 
                 if(destroy) {
                     item.remove();
@@ -97,9 +101,23 @@ const modals = () => {
         return scrollWidth;
     }
 
+    //show modal gift if user scrolled to the end of a page and not pressed any button
+    function openByScroll(selector) {
+        window.addEventListener('scroll', () => {
+            //to support old browsers
+            let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+
+            if(!btnPressed && (window.pageYOffset + document.documentElement.clientHeight >= scrollHeight)) {
+                document.querySelector(selector).click();
+            }
+        });
+    }
+
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
     bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
+
+    openByScroll('.fixed-gift');
 
     showModalByTime('.popup-consultation', 5000); 
 

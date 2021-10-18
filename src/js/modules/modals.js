@@ -23,6 +23,7 @@ const modals = () => {
                 //close all opened popups
                 windows.forEach(item => {
                     item.style.display = 'none';
+                    item.classList.add('animated', 'fadeIn');
                 });
     
                 modal.style.display = "block";

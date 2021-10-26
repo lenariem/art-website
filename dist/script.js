@@ -4086,7 +4086,7 @@ var forms = function forms() {
       }, 400);
       var statusImg = document.createElement('img');
       statusImg.setAttribute('src', message.spinner);
-      statusImg.classList.add('animated', fadeInUp);
+      statusImg.classList.add('animated', 'fadeInUp');
       statusMessage.appendChild(statusImg);
       var textMessage = document.createElement('div');
       textMessage.textContent = message.loading;

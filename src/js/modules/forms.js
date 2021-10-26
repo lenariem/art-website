@@ -64,7 +64,7 @@ const forms = () => {
 
             let statusImg = document.createElement('img');
             statusImg.setAttribute('src', message.spinner);
-            statusImg.classList.add('animated', fadeInUp);
+            statusImg.classList.add('animated', 'fadeInUp');
             statusMessage.appendChild(statusImg);
 
             let textMessage = document.createElement('div');

@@ -7,12 +7,18 @@ const showMoreStyles = (trigger, wrapper) => {
 
   //not arrow because of "this"
   btn.addEventListener("click", function() {
-    getResource("http://localhost:3000/styles")
+    //with run json-server src/assets/db.json in terminal
+    /* getResource("http://localhost:3000/styles")
       .then((res) => createCards(res))
+      .catch(error => console.log(error)); */
+
+    //use db.json directly
+    getResource("assets/db.json")
+      .then((res) => createCards(res.styles))
       .catch(error => console.log(error));
 
-      //to delete btn after click
-      this.remove();
+    //to delete btn after click
+    this.remove();
   });
 
   function createCards(response) {

@@ -2,7 +2,8 @@ import modals from './modules/modals';
 import sliders from './modules/sliders';
 import forms from './modules/forms';
 import showMoreStyles from './modules/showMoreStyles';
-import mask from './modules/mask'
+import mask from './modules/mask';
+import checkTextInputs from './modules/checkTextInputs';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -12,4 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     forms();
     showMoreStyles('.button-styles', '#styles .row');
     mask('[name="phone"]');
+    checkTextInputs('[name="name"]');
+    checkTextInputs('[name="message"]');
+
 });

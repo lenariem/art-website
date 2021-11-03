@@ -4396,7 +4396,7 @@ var calc = function calc(size, material, options, promocode, result) {
 
     if (sizeBlock.value == "" || materialBlock.value == "") {
       resultBlock.textContent = "Пожалуйста, выберите размер и материал картины";
-    } else if (promocodeBlock.value = "IWANPORTRAIT") {
+    } else if (promocodeBlock.value === "IWANPORTRAIT") {
       resultBlock.textContent = Math.round(sum * 0.7);
     } else {
       resultBlock.textContent = sum;

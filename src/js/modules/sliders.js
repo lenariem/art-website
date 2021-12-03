@@ -28,24 +28,22 @@ const sliders = (slides, direction, prev, next) => {
     }
 
     try {
-        const prevBtn = document.querySelector(prev);
-        const nextBtn = document.querySelector(next);
+        const prevBtn = document.querySelector(prev),
+              nextBtn = document.querySelector(next);
 
         prevBtn.addEventListener('click', () => {
             plusSlides(-1);
-            items[slideIndex -1].classList.remove('slideInLeft');
-            items[slideIndex -1].classList.add('slideInRight');
+            items[slideIndex - 1].classList.remove('slideInLeft');
+            items[slideIndex - 1].classList.add('slideInRight');
         });
 
         nextBtn.addEventListener('click', () => {
             plusSlides(1);
-            items[slideIndex -1].classList.remove('slideInRight');
-            items[slideIndex -1].classList.add('slideInLeft');
+            items[slideIndex - 1].classList.remove('slideInRight');
+            items[slideIndex - 1].classList.add('slideInLeft');
         });
 
-    } catch(err) {
-        console.log(err);
-    }
+    } catch(err) {}
 
     function activateAnimation() {
         if(direction === 'vertical') {

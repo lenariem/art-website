@@ -37,7 +37,6 @@ const showMoreStyles = (trigger, wrapper) => {
         <div class="styles-block">
           <img src=${src} alt=${title}>
           <h4>${title}</h4>
-          <a href=${link}>Подробнее</a>
         </div>
       `;
 

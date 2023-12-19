@@ -25,23 +25,6 @@ const accordion = (triggersSelector /* , itemsSelector */) => {
       }
     });
   });
-
-  //   blocks = document.querySelectorAll(itemsSelector);
-
-  // blocks.forEach(block => {
-  //     block.classList.add('animated', 'fadeInDown');
-  // });
-
-  // btns.forEach(btn => {
-  //     btn.addEventListener('click', function() {
-  //         if (!this.classList.contains('active')) {
-  //             btns.forEach(btn => {
-  //                 btn.classList.remove('active', 'active-style');
-  //             });
-  //             this.classList.add('active', 'active-style');
-  //         }
-  //     });
-  // });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accordion);
 
@@ -62,7 +45,7 @@ const burger = (menuSelector, burgerSelector) => {
     burgerElem = document.querySelector(burgerSelector);
   menuElem.style.display = 'none';
   burgerElem.addEventListener('click', () => {
-    if (menuElem.style.display == "none" /* && window.screen.availWidth < 993 */) {
+    if (menuElem.style.display == "none") {
       menuElem.style.display = 'block';
     } else {
       menuElem.style.display = 'none';
@@ -98,9 +81,9 @@ const calc = (size, material, options, promocode, result) => {
   const calcFunc = () => {
     sum = Math.round(+sizeBlock.value * +materialBlock.value + +optionsBlock.value);
     if (sizeBlock.value == "" || materialBlock.value == "") {
-      resultBlock.textContent = "Пожалуйста, выберите размер и материал картины";
-    } else if (promocodeBlock.value === "IWANPORTRAIT") {
-      resultBlock.textContent = Math.round(sum * 0.7);
+      resultBlock.textContent = "Please select the size and material of the painting";
+    } else if (promocodeBlock.value === "ELENAPOPART") {
+      resultBlock.textContent = Math.round(sum * 0.9);
     } else {
       resultBlock.textContent = sum;
     }
@@ -128,7 +111,7 @@ const checkTextInputs = selector => {
   const txtInputs = document.querySelectorAll(selector);
   txtInputs.forEach(input => {
     input.addEventListener('keypress', function (e) {
-      if (e.key.match(/[^а-яё 0-9]/ig)) {
+      if (e.key.match(/[^a-zA-Z 0-9]/ig)) {
         e.preventDefault();
       }
     });
@@ -291,13 +274,10 @@ const forms = () => {
   const form = document.querySelectorAll('form');
   const inputs = document.querySelectorAll('input');
   const upload = document.querySelectorAll('[name="upload"]');
-
-  /* checkNumberInputs('input[name="user_phone"]'); */
-
   const message = {
-    loading: 'Загрузка...',
-    success: 'Спасибо! Скоро мы с вами свяжемся',
-    failure: 'Что-то пошло не так...',
+    loading: 'Loading...',
+    success: 'Thank you! We will contact you soon',
+    failure: 'Something went wrong...',
     spinner: 'assets/img/spinner.gif',
     ok: 'assets/img/ok.png',
     fail: 'assets/img/fail.png'
@@ -311,7 +291,7 @@ const forms = () => {
       item.value = '';
     });
     upload.forEach(item => {
-      item.previousElementSibling.textContent = "Файл не выбран";
+      item.previousElementSibling.textContent = "File not selected";
     });
   };
 
@@ -482,7 +462,6 @@ const modals = () => {
         });
         modal.style.display = "none";
         document.body.style.overflow = "";
-        /* document.body.classList.remove('modal-open'); */
         document.body.style.marginRight = '0px';
       }
     });
@@ -559,7 +538,6 @@ const pictureSize = imgSelector => {
   const blocks = document.querySelectorAll(imgSelector);
   function showImg(block) {
     const img = block.querySelector('img');
-    // something.png => something-1.png
     img.src = img.src.slice(0, -4) + '-1.png';
     block.querySelectorAll('p:not(.sizes-hit)').forEach(p => {
       p.style.display = 'none';
@@ -567,7 +545,6 @@ const pictureSize = imgSelector => {
   }
   function hideImg(block) {
     const img = block.querySelector('img');
-    // something-1.png => something.png
     img.src = img.src.slice(0, -6) + '.png';
     block.querySelectorAll('p:not(.sizes-hit)').forEach(p => {
       p.style.display = 'block';
@@ -977,7 +954,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
   (0,_modules_filter__WEBPACK_IMPORTED_MODULE_7__["default"])();
   (0,_modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__["default"])('.sizes-block');
-  (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_9__["default"])('.accordion-heading' /* , '.accordion-block' */);
+  (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_9__["default"])('.accordion-heading');
   (0,_modules_burger__WEBPACK_IMPORTED_MODULE_10__["default"])('.burger-menu', '.burger');
   (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_11__["default"])('.pageup');
   (0,_modules_drop__WEBPACK_IMPORTED_MODULE_12__["default"])();

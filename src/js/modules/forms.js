@@ -4,13 +4,11 @@ const forms = () => {
     const form = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
     const upload = document.querySelectorAll('[name="upload"]');
-
-    /* checkNumberInputs('input[name="user_phone"]'); */
        
     const message = {
-        loading: 'Загрузка...',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
-        failure: 'Что-то пошло не так...',
+        loading: 'Loading...',
+        success: 'Thank you! We will contact you soon',
+        failure: 'Something went wrong...',
         spinner: 'assets/img/spinner.gif',
         ok: 'assets/img/ok.png',
         fail: 'assets/img/fail.png', 
@@ -21,14 +19,12 @@ const forms = () => {
         question: 'assets/question.php'
     }
 
-    
-
     const clearInputs = () => {
         inputs.forEach(item => {
             item.value = '';
         });
         upload.forEach(item => {
-            item.previousElementSibling.textContent = "Файл не выбран";
+            item.previousElementSibling.textContent = "File not selected";
         })
     };
 

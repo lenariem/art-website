@@ -14,9 +14,9 @@ const calc = (size, material, options, promocode, result) => {
 
     if (sizeBlock.value == "" || materialBlock.value == "") {
       resultBlock.textContent =
-        "Пожалуйста, выберите размер и материал картины";
-    } else if ((promocodeBlock.value === "IWANPORTRAIT")) {
-      resultBlock.textContent = Math.round(sum * 0.7);
+        "Please select the size and material of the painting";
+    } else if ((promocodeBlock.value === "ELENAPOPART")) {
+      resultBlock.textContent = Math.round(sum * 0.9);
     } else {
       resultBlock.textContent = sum;
     }

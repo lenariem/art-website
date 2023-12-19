@@ -53,7 +53,6 @@ const modals = () => {
 
                 modal.style.display = "none";
                 document.body.style.overflow = "";
-               /* document.body.classList.remove('modal-open'); */
                document.body.style.marginRight = '0px';
             }
         })
